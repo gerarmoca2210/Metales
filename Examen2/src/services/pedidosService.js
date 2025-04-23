@@ -18,10 +18,6 @@ class CalificacionesService {
     return await Pedidos.find();
   }
 
-  async getByEstado(estado) {
-    return await Pedidos.find({ "estado": estado });
-  }
-
   // Consulta desde Pedidos obtiene la info de Productos
   async getPedidosConProductos() {
     return await Pedidos.aggregate([

@@ -27,7 +27,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Todos los Pedidos</h4>
+                        <div class="d-flex align-items-center">
+                            <h4 class="card-title">Pedidos</h4>
+                            <a class="btn btn-primary btn-round ms-auto"
+                                    href=" @Url.Action("Agregar", "Pedido")">
+                                <i class="fa fa-plus"></i>
+                                Agregar
+                            </a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -48,16 +55,7 @@
                                     {
                                         <tr>
                                             <td>@item._id</td>
-                                            @if (item.NombreCliente != null)
-                                            {
-                                                <td>
-                                                    @item.NombreCliente.nombre
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                <td>No hay Clientes</td>
-                                            }
+                                            <td>@item.NombreCliente?.nombre</td>
                                             @if (item.ProductosConsulta!= null)
                                             {
                                                <td>
@@ -88,11 +86,7 @@
                                             </td>
                                             
                                         </tr>
-                                    }
-                                    <tr>
-                                       
-                                    </tr>
-                                    
+                                    }                                    
                                 </tbody>
                             </table>
                         </div>

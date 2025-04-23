@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Empleados\" />
+    <Folder Include="Views\Facturas\" />
+    <Folder Include="Views\Inventario\" />
+    <Folder Include="Views\Mantenimiento\" />
+    <Folder Include="Views\Proyectos\" />
     <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 

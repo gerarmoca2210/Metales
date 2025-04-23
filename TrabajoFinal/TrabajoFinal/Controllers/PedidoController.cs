@@ -22,5 +22,11 @@ namespace TrabajoFinal.Controllers
                 return View(new List<Pedido>());
             }
         }
+
+        [HttpGet]
+        public IActionResult Agregar()
+        {
+            return View();
+        }
     }
 }
