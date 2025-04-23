@@ -10,11 +10,12 @@ namespace TrabajoFinal.Models
         {
             string url = _apiUrl + "pedidos/todos";
             var resp = _http.GetAsync(url).Result;
-
             if (resp.IsSuccessStatusCode)
                 return resp.Content.ReadFromJsonAsync<List<Pedido>>().Result;
 
             return null;
         }
+
+
     }
 }

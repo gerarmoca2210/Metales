@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-const pedidosSchema = new mongoose.Schema ({
+const productosSchema = new mongoose.Schema({
     nombre: { type: String },
-    producto_id: { type: Number },
-    cantidad: {type: Number},
-    estado: { type: String}, 
-}, {collection: 'Productos'});
+    material: { type: String },
+    precio: { type: Number },
+    stock: { type: Number },
+    proveedores: { type: Number },
+}, { collection: 'productos' });
 
-module.exports = mongoose.model('Pedidos', pedidosSchema);
+module.exports = mongoose.model('Productos', productosSchema);

@@ -14,6 +14,18 @@ class CalificacionesController {
         }
     }
 
+    async getPedidos(req, res) {
+        try {
+            const item = await calificacionesService.getPedidos();
+            if (!item) {
+                return res.status(404).json({ error: 'Items not found' });
+            }
+            res.json(item);
+        } catch (err) {
+            res.status(500).json({ error: err.message });
+        }
+    }
+
     async getPedidosConProductos(req, res) {
         try {
             const item = await pedidosService.getPedidosConProductos();
