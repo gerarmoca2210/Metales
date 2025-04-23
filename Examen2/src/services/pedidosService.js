@@ -1,16 +1,16 @@
 const Pedidos = require('../models/Pedidos');
+const PedidosObj = require('../models/PedidosObj')
 const Maquinas = require('../models/Maquinas');
 const mongoose = require('mongoose');
 
-class CalificacionesService {
-  async createItem(data) {
-    const item = new Pedidos(data);
-    console.log(item);
-    await item.save();
-    return item;
+class PedidosService {
+  async createPedidos(data) {
+    const pedido = new PedidosObj(data);
+    await pedido.save();
+    return pedido;
   }
 
-  async getItem(id) {
+  async getPedido(id) {
     return await Pedidos.findById(id);
   }
 
@@ -45,7 +45,7 @@ class CalificacionesService {
           "cliente":1,
           "estado": 1,
           "ProductosConsulta.nombre": 1,
-          "NombreCliente.nombre":1
+          "NombreCliente.nombre":1,
         }
       }
 
@@ -75,13 +75,16 @@ class CalificacionesService {
     return await mongoose.connection.collection('VistaMaterializadaPedidos').find({}).toArray();
   }
 
-  async updateItem(id, data) {
-    return await Pedidos.findByIdAndUpdate(id, data, { new: true });
+  async updatePedidos(id, data) {
+    console.log(id);
+    const pedido = new PedidosObj(data);
+    console.log(pedido);
+    return await Pedidos.findByIdAndUpdate(id, pedido, { new: true });
   }
 
-  async deleteItem(id) {
+  async deletePedidos(id) {
     return await Pedidos.findByIdAndDelete(id);
   }
 }
 
-module.exports = new CalificacionesService();
+module.exports = new PedidosService();

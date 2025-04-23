@@ -1,5 +1,89 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model TrabajoFinal.Entity.Pedido
+
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Forms</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="#">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Pedidos</a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Agregar Pedido</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <form asp-action="Agregar" method="post">
+                    <div class="card-header">
+                        <div class="card-title">Agregar Pedido</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Cliente</label>
+                                    <select name="cliente" class="form-select"
+                                            id="exampleFormControlSelect1">
+                                        @foreach (var cliente in ViewBag.Clientes)
+                                        {
+                                            <option value="@cliente._id">@cliente.nombre</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Producto</label>
+                                    <select name="productos" class="form-select"
+                                            id="exampleFormControlSelect1">
+                                        @foreach (var producto in ViewBag.Productos)
+                                        {
+                                            <option value="@producto._id">@producto.nombre</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="cantidad"
+                                           placeholder="Cantidad"
+                                           name="cantidad" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Estado</label>
+                                    <select class="form-select"
+                                            name="estado">
+                                        <option value="Pendiente">Pendiente</option>
+                                        <option value="En Proceso">En Proceso</option>
+                                        <option value="Entregado">Entregado</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button type="submit" class="btn btn-success">Agregar</button>
+                        <button class="btn btn-danger">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

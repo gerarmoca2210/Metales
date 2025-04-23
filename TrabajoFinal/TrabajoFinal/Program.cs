@@ -11,6 +11,8 @@ builder.Services.AddHttpContextAccessor();
 
 //ADD INTERFACES
 builder.Services.AddSingleton<IpedidoModel, PedidoModel>();
+builder.Services.AddSingleton<IProductoModel, ProductosModel>();
+builder.Services.AddSingleton<IClientesModel, ClientesModel>();
 
 var app = builder.Build();
 
